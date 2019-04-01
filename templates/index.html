@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图像识别</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
+{#    <link rel="stylesheet" href="/static/fontawesome/css/font-awesome.min.css">#}
+    <link rel="stylesheet" href="/static/mystyle.css">
+    <script src="/static/jquery-3.3.1.js"></script>
+</head>
+<body>
+
+{#导航栏开始#}
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img alt="Brand" src="/static/image/科大.jpg" class="img-circle"
+                     style="height: 30px ;width: 30px; margin-bottom: 10px;margin-left: auto;">
+            </a>
+            <a class="navbar-brand" href="#">车辆识别成果展示</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav ">
+                <li class="active"><a href="/login/">我们的工作 <span class="sr-only">(current)</span></a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                {% if request.user.username %}
+                    <li><a href="#">{{ request.user.username }}</a></li>
+
+                    <li><a href="/logout/">注销</a></li>
+                {% else %}
+                    <li><a href="/login/">登录</a></li>
+                    <li><a href="/reg/">注册</a></li>
+
+                {% endif %}
+
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+{#导航栏结束#}
+
+{#识别模块开始#}
+<div class="result-cover" style="background-image: url(/static/image/科大.jpg); background-size: contain;"><!----></div>
+<div class="grain-content-inline-search"><div class="search"><input spellcheck="false" type="text" placeholder="请输入网络图片URL" class="search-url"> <button class="search-button">检测</button> <div class="search-add">或</div> <label class="search-local"><input type="file" accept="image/png, image/bmp, image/jpg, image/jpeg" class="search-local-input">
+        上传图片
+    </label></div></div>
+{#识别模块结束#}
+</body>
+</html>
